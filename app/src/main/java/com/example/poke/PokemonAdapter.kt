@@ -6,8 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poke.data.Pokemon
-import com.example.poke.databinding.FragmentPokemonBinding
-
+import com.example.poke.databinding.RecycleItemBinding
 
 
 class PokemonAdapter(private val onItemClicked: (Pokemon) -> Unit) :
@@ -15,7 +14,7 @@ class PokemonAdapter(private val onItemClicked: (Pokemon) -> Unit) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
         return PokemonViewHolder(
-            FragmentPokemonBinding.inflate(
+            RecycleItemBinding.inflate(
                 LayoutInflater.from(
                     parent.context
                 )
@@ -31,12 +30,12 @@ class PokemonAdapter(private val onItemClicked: (Pokemon) -> Unit) :
         holder.bind(current)
     }
 
-    class PokemonViewHolder(private var binding: FragmentPokemonBinding) :
+    class PokemonViewHolder(private var binding: RecycleItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(pokemon: Pokemon) {
             binding.apply {
-                 text.text = pokemon.itemName
+                 textview.text = pokemon.itemName
             }
         }
     }
